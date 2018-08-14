@@ -1,0 +1,11 @@
+solo 1 thread:
+CPU usage: 0.4%
+Memory used: 30.393.488 B
+
+50 hilos:
+CPU usage:
+Memory used: 
+
+100 hilos:
+CPU usage:
+Memory used:

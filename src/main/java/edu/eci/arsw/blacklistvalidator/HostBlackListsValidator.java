@@ -38,7 +38,7 @@ public class HostBlackListsValidator {
     	for(int i = 0;i < N-1;i++) {
 			lvt.add(new ValidatorThread((skds.getRegisteredServersCount() / N) * i,(skds.getRegisteredServersCount() / N) * (i+1) - 1,ipaddress));
 		}
-    	lvt.add(new ValidatorThread((skds.getRegisteredServersCount() / N) * (N-1),skds.getRegisteredServersCount() - 1 + (skds.getRegisteredServersCount() % N),ipaddress));
+    	lvt.add(new ValidatorThread((skds.getRegisteredServersCount() / N) * (N-1),((skds.getRegisteredServersCount() / N) * (N - 1) + (skds.getRegisteredServersCount() / N) + (skds.getRegisteredServersCount() % N)) - 1,ipaddress));
     	for(int i = 0;i < lvt.size();i++) {
     		lvt.get(i).start();
     	}
@@ -51,7 +51,7 @@ public class HostBlackListsValidator {
     	}
     	int clc = 0;
     	for(int i = 0;i < lvt.size();i++) {
-    		System.out.println("El hilo " + i + " revisó " + lvt.get(i).checkedLists() + "listas");
+//    		System.out.println("El hilo " + i + " revisó " + lvt.get(i).checkedLists() + " listas");
     		clc += lvt.get(i).checkedLists();
     	}
     	int oc = 0;
