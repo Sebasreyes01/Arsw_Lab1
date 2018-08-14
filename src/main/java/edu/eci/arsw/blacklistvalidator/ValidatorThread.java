@@ -30,7 +30,7 @@ public class ValidatorThread extends Thread {
 		o = 0;
 		HostBlacklistsDataSourceFacade skds = HostBlacklistsDataSourceFacade.getInstance();
 		checkedListsCount = 0;
-		for (int i = a; i < b && o < BLACK_LIST_ALARM_COUNT; i++) {
+		for (int i = a; i <= b && o < BLACK_LIST_ALARM_COUNT; i++) {
 			checkedListsCount++;
 			if (skds.isInBlackListServer(i, ip)) {
 				blackListOccurrences.add(i);
