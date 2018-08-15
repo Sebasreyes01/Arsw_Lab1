@@ -8,14 +8,12 @@ package edu.eci.arsw.blacklistvalidator;
 import edu.eci.arsw.spamkeywordsdatasource.HostBlacklistsDataSourceFacade;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author hcadavid
+ * @author Sebastián Reyes
  */
 public class HostBlackListsValidator {
 
@@ -51,12 +49,11 @@ public class HostBlackListsValidator {
     	}
     	int clc = 0;
     	for(int i = 0;i < lvt.size();i++) {
-//    		System.out.println("El hilo " + i + " revisó " + lvt.get(i).checkedLists() + " listas");
     		clc += lvt.get(i).checkedLists();
     	}
     	int oc = 0;
     	for(int i = 0;i < lvt.size();i++) {
-    		oc += lvt.get(i).quantityOcurrences();
+    		oc += lvt.get(i).quantityOccurrences();
     	}
     	if (oc >= BLACK_LIST_ALARM_COUNT) {
 			skds.reportAsNotTrustworthy(ipaddress);
@@ -68,41 +65,6 @@ public class HostBlackListsValidator {
     	}
     	LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", new Object[]{clc, skds.getRegisteredServersCount()});
     	return lvt.get(0).listOccurrences();
-        
-//        LinkedList<Integer> blackListOcurrences=new LinkedList<>();
-//        
-//        int ocurrencesCount=0;
-//        
-//        HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
-//        
-//        int checkedListsCount=0;
-//        
-//        for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
-//            checkedListsCount++;
-//            
-//            if (skds.isInBlackListServer(i, ipaddress)){
-//                
-//                blackListOcurrences.add(i);
-//                
-//                ocurrencesCount++;
-//            }
-//        }
-//        
-//        if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){
-//            skds.reportAsNotTrustworthy(ipaddress);
-//        }
-//        else{
-//            skds.reportAsTrustworthy(ipaddress);
-//        }                
-//        
-//        LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", new Object[]{checkedListsCount, skds.getRegisteredServersCount()});
-//        
-//        return blackListOcurrences;
     }
-    
-    
-//    private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
-    
-    
-    
 }
+

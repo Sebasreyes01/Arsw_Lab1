@@ -1,11 +1,19 @@
 solo 1 thread:
-CPU usage: 0.4%
-Memory used: 30.393.488 B
+CPU usage: 0.2%
+Memory used: 30.206.544 B
 
 50 hilos:
-CPU usage:
-Memory used: 
+CPU usage: 5.6%
+Memory used: 23.117.904 B
 
 100 hilos:
-CPU usage:
-Memory used:
+CPU usage: 28.9%
+Memory used: 26.726.584 B
+
+Nucleos de procesamiento:
+CPU usage: 1.0%
+Memory used: 20.811.304 B
+
+Doble de Nucleos de procesamiento:
+CPU usage: 1.4%
+Memory used: 20.138.576

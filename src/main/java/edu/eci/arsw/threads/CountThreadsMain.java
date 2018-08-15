@@ -6,7 +6,6 @@
 package edu.eci.arsw.threads;
 
 /**
- *
  * @author Sebastián Reyes
  */
 public class CountThreadsMain {

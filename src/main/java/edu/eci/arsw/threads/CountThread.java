@@ -14,6 +14,11 @@ public class CountThread extends Thread {
     private int a;
     private int b;
     
+    /**
+     * 
+     * @param a It is the beginning of the range.
+     * @param b It is the end of the range.
+     */
     public CountThread(int a,int b) {
         this.a = a;
         this.b = b;

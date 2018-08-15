@@ -2,11 +2,12 @@ package edu.eci.arsw.blacklistvalidator;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import edu.eci.arsw.spamkeywordsdatasource.HostBlacklistsDataSourceFacade;
 
+/**
+ * @author Sebastián Reyes
+ */
 public class ValidatorThread extends Thread {
 
 	private int a;
@@ -16,14 +17,19 @@ public class ValidatorThread extends Thread {
 	private int checkedListsCount;
 	private LinkedList<Integer> blackListOccurrences;
 	private static final int BLACK_LIST_ALARM_COUNT=5;
-	private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
-
+	
+	/**
+	 * Constructor of the class.
+	 * @param a It is the beginning of the range of servers that is going to be checked.
+	 * @param b It is the end of the range of servers that is going to be checked.
+	 * @param ip It is the ip address that is going to be checked.
+	 */
 	public ValidatorThread(int a, int b, String ip) {
 		this.a = a;
 		this.b = b;
 		this.ip = ip;
 	}
-
+	
 	@Override
 	public void run() {
 		blackListOccurrences = new LinkedList<>();
@@ -37,23 +43,25 @@ public class ValidatorThread extends Thread {
 				o++;
 			}
 		}
-//		if (o >= BLACK_LIST_ALARM_COUNT) {
-//			skds.reportAsNotTrustworthy(ip);
-//		} else {
-//			skds.reportAsTrustworthy(ip);
-//		}
-//		LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", 
-//				new Object[] { checkedListsCount, b });
 	}
-
-	public int quantityOcurrences() {
+	
+	/**
+	 * @return The quantity of occurrences of the ip in the servers.
+	 */
+	public int quantityOccurrences() {
 		return o;
 	}
 	
+	/**
+	 * @return The number of the lists where there was an occurrence.
+	 */
 	public List<Integer> listOccurrences() {
 		return blackListOccurrences;
 	}
 	
+	/**
+	 * @return The number of lists checked.
+	 */
 	public int checkedLists() {
 		return checkedListsCount;
 	}
